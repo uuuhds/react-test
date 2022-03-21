@@ -1,5 +1,14 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Imperative, State, Portal, Bubbling, Callback, Memo } from "./pages";
+import {
+  Imperative,
+  State,
+  Portal,
+  Bubbling,
+  Callback,
+  Memo,
+  Reducer,
+  Context,
+} from "./pages";
 import "./App.css";
 
 function App() {
@@ -32,6 +41,12 @@ function App() {
             useMemo
           </Link>
           <Link
+            to="/hooks/useReducer"
+            className="p-4 text-center bg-amber-100 border-solid border-2 grow"
+          >
+            useReducer
+          </Link>
+          <Link
             to="/api/createPortal"
             className="p-4 text-center bg-amber-100 border-solid border-2 grow"
           >
@@ -43,6 +58,12 @@ function App() {
           >
             bubbling
           </Link>
+          <Link
+            to="/hooks/useContext"
+            className="p-4 text-center bg-amber-100 border-solid border-2 grow"
+          >
+            useContext
+          </Link>
         </nav>
         <main className="p-4 border-2 h-full flex justify-center items-center">
           <Routes>
@@ -50,6 +71,11 @@ function App() {
             <Route path="/hooks/useState" element={<State />} />
             <Route path="/hooks/useCallback" element={<Callback />} />
             <Route path="/hooks/useMemo" element={<Memo />} />
+            <Route
+              path="/hooks/useReducer"
+              element={<Reducer initialCount={0} />}
+            />
+            <Route path="/hooks/useContext/" element={<Context />} />
             {/* <Route path="/hooks/useEffect" element={} /> */}
             <Route path="/api/createPortal" element={<Portal />} />
             <Route path="/event/bubbling" element={<Bubbling />} />
